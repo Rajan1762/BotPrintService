@@ -33,7 +33,7 @@ class _PrintLogScreenState extends State<PrintLogScreen> {
                 itemBuilder: (context,index){
               return Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text(snapshot.data!,style: const TextStyle(color: Colors.black),)
+                child: Text(snapshot.data!,style: const TextStyle(color: Colors.black))
               );
             });
           } else {
