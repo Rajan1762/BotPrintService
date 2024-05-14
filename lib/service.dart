@@ -5,6 +5,7 @@ import 'package:dummy/common_values.dart';
 import 'package:http/http.dart' as http;
 
 network() async {
+  int count = 0;
   final server = await HttpServer.bind('localhost', 8080);
   print('Listening on ${server.address}:${server.port}');
 
@@ -37,7 +38,11 @@ network() async {
 
           // Call another API with the received data
           //await callSecondApi(requestBody);
-          String status = callSecondApi(requestBody) as String;
+          String status = await callSecondApi(requestBody);
+          count++;
+          print('status = $status, count = $count');
+
+          logStreamController.add('status = $status, count = $count');
 
           if (status.contains("Error") ||
               status.contains("error") ||

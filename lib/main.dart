@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:dummy/colors.dart';
 import 'package:dummy/common_values.dart';
 import 'package:dummy/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: appThemeColor,
+          foregroundColor: Colors.white
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

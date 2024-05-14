@@ -1,9 +1,9 @@
+import 'dart:async';
 import 'package:dummy/common_values.dart';
+import 'package:dummy/print_log/print_log.dart';
 import 'package:dummy/service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,7 +42,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
         appBar: AppBar(
           backgroundColor: appThemeColor,
-            title: const Text('Bros One Tech',style: TextStyle(color: Colors.white),)),
+            title: const Text('Bros One Tech',style: TextStyle(color: Colors.white),),
+        actions: [
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const PrintLogScreen()));
+            },
+              child: const Icon(Icons.sticky_note_2_outlined)
+          )
+        ],),
           body: SingleChildScrollView(
             child: SizedBox(
               height: MediaQuery.of(context).size.height,
